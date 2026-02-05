@@ -1,0 +1,57 @@
+{
+  "files": {
+    "input_file": "server_inventory.xlsx",
+    "output_file": "masked_inventory.xlsx"
+  },
+  "cloud": {
+    "target": "aws", 
+    "bucket_name": "my-secure-backup-bucket",
+    "destination_path": "uploads/2026/",
+    "region": "us-east-1",
+    "gcp_key_path": "path/to/gcp-credentials.json",
+    "aws_access_key": "YOUR_ACCESS_KEY", 
+    "aws_secret_key": "YOUR_SECRET_KEY"
+  },
+  "masking_rules": [
+    {
+      "column": "Server_Name",
+      "type": "text",
+      "strategy": "random_string"
+    },
+    {
+      "column": "IP_Address",
+      "type": "ip",
+      "strategy": "fake_ip"
+    },
+    {
+      "column": "Cost",
+      "type": "number",
+      "strategy": "zero"
+    },
+    {
+      "column": "Last_Patch_Date",
+      "type": "date",
+      "strategy": "current_date"
+    },
+    {
+      "column": "Admin_Password",
+      "type": "text",
+      "strategy": "static",
+      "value": "REDACTED"
+    },
+    {
+      "column": "Is_Active",
+      "type": "boolean",
+      "strategy": "invert"
+    },
+    {
+      "column": "Owner_Email",
+      "type": "text",
+      "strategy": "conditional",
+      "condition_col": "Environment",
+      "condition_val": "Production",
+      "mask_value": "admin@company.com",
+      "else_action": "keep"
+    }
+  ]
+}

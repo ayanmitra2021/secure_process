@@ -1,0 +1,5 @@
+pandas
+openpyxl
+boto3
+google-cloud-storage
+faker
