@@ -19,8 +19,8 @@ This tool is a Python-based automation script designed to mask sensitive data wi
 
 1.  **Clone the repository** (or download the script):
     ```bash
-    git clone https://github.com/your-username/your-repo.git
-    cd your-repo
+    git clone https://github.com/ayanmitra2021/secure_process.git
+    cd secure_process
     ```
 
 2.  **Install dependencies**:
