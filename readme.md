@@ -36,7 +36,7 @@ The behavior of the script is controlled entirely by `config.json`.
 
 ### Structure
 
-Create a `config.json` file in the root directory:
+Create a `config.json` file in the root directory. A sample of such a configuration given below.
 
 ```json
 {
@@ -105,6 +105,13 @@ Takes the masked output file and uploads it to the configured cloud provider.
 
 ```bash
 python secure_process.py upload --config config.json
+```
+
+### 3. Generating fake server inventory data for testing
+Generates 100 fake (but realistic) server inventory data that can be used for testing. 
+
+```bash
+python generate_test_data.py
 ```
 
 ## ☁️ Cloud Setup
